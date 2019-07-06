@@ -9,37 +9,6 @@ const routes: Routes = [
   { path: 'tips', loadChildren: './tips/tips.module#TipsPageModule' },
   { path: 'events', loadChildren: './events/events.module#EventsPageModule' },
   { path: 'create-event', loadChildren: './create-event/create-event.module#CreateEventPageModule' },
-
-   /*{ path: '', component: HomePage, children:[
-        { path: 'news', children: [
-              {
-                path: 'news',
-                loadChildren: '../news/news.module#NewsPageModule'
-              }
-            ]
-        },
-        {
-          path: 'tips',
-          children:
-            [
-              {
-                path: 'tips',
-                loadChildren: '../tips/tips.module#TipsPageModule'
-              }
-            ]
-        },
-        {
-          path: '',
-          redirectTo: 'news',
-          pathMatch: 'full'
-        }
-      ]
-  },
-  {
-    path: '',
-    redirectTo: 'news',
-    pathMatch: 'full'
-  }*/
 ];
 
 @NgModule({
@@ -48,4 +17,6 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule { 
+  
+}
