@@ -40,14 +40,14 @@ const routes: Routes = [
         },
         {
           path: '',
-          redirectTo: 'home',
+          redirectTo: 'news',
           pathMatch: 'full'
         }
       ]
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'news',
     pathMatch: 'full'
   }
 ];
