@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
-import { ApiService } from '../api.service';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-create-event',
@@ -90,12 +90,11 @@ export class CreateEventPage implements OnInit {
       console.log(resp)
       this.lat = resp.coords.latitude
       this.lng = resp.coords.longitude
-      this.incidenteFormGroup.get("latitud").setValue(this.lat);
-      this.incidenteFormGroup.get("longitud").setValue(this.lng);
     }).catch((error) => {
       console.log('Error getting location', error);
-    })
-    
+    })    
+    this.incidenteFormGroup.get("latitud").setValue(this.lat);
+    this.incidenteFormGroup.get("longitud").setValue(this.lng);    
     this.API.reportar(this.incidenteFormGroup.value).subscribe(response =>{
       console.log(response);      
       this.toastMessage();  

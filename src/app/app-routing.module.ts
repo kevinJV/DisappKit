@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'create-event', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
   { path: 'onboarding', loadChildren: './onboarding/onboarding.module#OnboardingPageModule' },
   { path: 'news', loadChildren: './news/news.module#NewsPageModule' },
@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'events', loadChildren: './events/events.module#EventsPageModule' },
   { path: 'create-event', loadChildren: './create-event/create-event.module#CreateEventPageModule' },
 ];
-
+ 
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
