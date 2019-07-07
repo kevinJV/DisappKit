@@ -5,5 +5,31 @@
 </ion-header>
 
 <ion-content>
-  <p>Mundo</p>
+  <div *ngFor="let new of news">
+    <div *ngIf="new.day">
+      <ion-card> 
+        <img src="../../assets/images/day.svg"/>
+        <ion-card-header>
+          <ion-card-title>{{ new.day.narrative }}</ion-card-title>
+          <ion-card-subtitle>{{ new.dow }}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          {{ new.day.pop_phrase }}
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <div *ngIf="new.night">
+      <ion-card> 
+          <img src="../../assets/images/night.svg"/>
+          <ion-card-header>
+            <ion-card-title>{{ new.narrative }}</ion-card-title>
+            <ion-card-subtitle>{{ new.dow }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            {{ new.night.pop_phrase }}
+          </ion-card-content>
+        </ion-card>
+    </div>
+  </div>
 </ion-content>

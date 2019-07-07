@@ -22,7 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     BrowserModule, 
     IonicModule.forRoot(), 
-    AppRoutingModule, 
+    AppRoutingModule,  
     HttpClientModule,     
   ],
   providers: [
