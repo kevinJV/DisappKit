@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  API : string ="https://forecastapi.mybluemix.net/event/"
+  API : string ="https://forecastapi.mybluemix.net/event"
   constructor(
     private http : HttpClient,  
   ) { }
@@ -19,5 +19,9 @@ export class ApiService {
       })      
     }
     return this.http.post(this.API,item,httpOptions);  
+  }
+
+  getIncidentes(date:any): Observable<any> {
+    return this.http.get(`${this.API}?date=`+date)
   }
 }

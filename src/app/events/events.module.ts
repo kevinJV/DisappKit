@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { EventsPage } from './events.page';
+import { AgmCoreModule } from '@agm/core';
 
 const routes: Routes = [
   {
@@ -19,7 +20,11 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDBqsvI4AWS5n1ipMCbyq2CWsX6-xxrIg8'
+    })  
+
   ],
   declarations: [EventsPage]
 })
