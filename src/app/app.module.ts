@@ -12,6 +12,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { HttpClientModule } from '@angular/common/http';
+import { AgmCoreModule } from '@agm/core';
 import { Firebase } from '@ionic-native/firebase/ngx';
 
 @NgModule({
@@ -24,7 +25,10 @@ import { Firebase } from '@ionic-native/firebase/ngx';
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule,  
-    HttpClientModule,     
+    HttpClientModule,   
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDBqsvI4AWS5n1ipMCbyq2CWsX6-xxrIg8'
+    })  
   ],
   providers: [
     StatusBar,

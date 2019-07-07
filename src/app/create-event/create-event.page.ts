@@ -98,6 +98,8 @@ export class CreateEventPage implements OnInit {
     this.incidenteFormGroup.get("latitud").setValue(this.lat);
     this.incidenteFormGroup.get("longitud").setValue(this.lng);    
     this.API.reportar(this.incidenteFormGroup.value).subscribe(response =>{
+      console.log(response); 
+      this.router.navigateByUrl("/create-event")     
       this.notification_service.sendNotification(this.incidenteFormGroup.value.tipo)
         .subscribe(response => {
           console.log(response)
