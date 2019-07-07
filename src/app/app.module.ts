@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { HttpClientModule } from '@angular/common/http';
 import { AgmCoreModule } from '@agm/core';
+import { Firebase } from '@ionic-native/firebase/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,6 +35,7 @@ import { AgmCoreModule } from '@agm/core';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
     Geolocation,
+    Firebase
   ],
   bootstrap: [AppComponent],
 })
