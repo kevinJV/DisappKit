@@ -1,9 +1,78 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>create-event</ion-title>
+    <ion-title>Reportar un evento</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-
+<div class="container">
+  <div class="row" style="margin-top: 15px">
+    <div class="col">
+      <button style="width: 80px; height: 80px; padding-right: 25px" class="btn-secondary" (click)="opcion1()">
+          <ion-icon style="width: 75px; height: 75px; " name="rainy"></ion-icon>
+      </button>
+      <small class="form-text text-muted" style="text-align: center">Inundacion</small>
+    </div>
+    <div class="col">
+        <button style="width: 80px; height: 80px; padding-right: 15px" class="btn-secondary" (click)="opcion2()">
+            <ion-icon style="width: 75px; height: 75px; " name="flame"></ion-icon>
+        </button>
+        <small class="form-text text-muted" style="text-align: center">Incendio</small>
+    </div>
+    <div class="col">
+        <button style="width: 80px; height: 80px; padding-right: 15px" class="btn-secondary" (click)="opcion3()">
+            <ion-icon style="width: 75px; height: 75px; " name="home"></ion-icon>
+        </button>
+        <small class="form-text text-muted" style="text-align: center">Derrumbe</small>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 15px">
+      <div class="col">
+        <button style="width: 80px; height: 80px; padding-right: 15px" class="btn-secondary" (click)="opcion4()"> 
+            <ion-icon style="width: 75px; height: 75px; " name="trending-down"></ion-icon>
+        </button>
+        <small class="form-text text-muted" style="text-align: center">Deslave</small>
+      </div>
+      <div class="col">
+          <button style="width: 80px; height: 80px; padding-right: 15px" class="btn-secondary" (click)="opcion5()">
+              <ion-icon style="width: 75px; height: 75px; " name="snow"></ion-icon>
+          </button>
+          <small class="form-text text-muted" style="text-align: center">Avalancha</small>
+      </div>
+      <div class="col">
+          <button style="width: 80px; height: 80px; padding-right: 15px" class="btn-secondary" (click)="opcion6()">
+              <ion-icon style="width: 75px; height: 75px; " name="add"></ion-icon>
+          </button>
+          <small class="form-text text-muted" style="text-align: center">Otro</small>
+      </div>
+    </div>     
+    <form style="margin-top: 30px" [formGroup]="incidenteFormGroup">
+        <div class="row" *ngIf="select">
+          <div class="col">
+            <fieldset disabled>
+              <div class="form-group">
+                <label for="disabledTextInput">Tipo de evento</label>
+                <input type="text" id="disabledTextInput" class="form-control" value="{{this.incidenteFormGroup.get('tipo').value}}" placeholder="Tipo de evento">
+              </div>
+            </fieldset>
+          </div>          
+        </div>        
+        <div class="row" *ngIf="otro">
+          <div class="col form-group">
+            <label style="font-weight: bold" >Especifique...</label>
+            <input formControlName="tipo" type="text" class="form-control" placeholder="Especifique...">
+            <small class="form-text text-muted">Describa brevemente el tipo de evento</small>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col form-group">
+              <label style="font-weight: bold">Recomendacion (Opcional)</label>
+              <input formControlName="recomendacion" type="text" class="form-control" placeholder="Recomendacion">
+              <small class="form-text text-muted">Escriba una pequeña recomendacion</small>
+            </div>
+          </div>
+        <button class="btn btn-primary"  type="submit" (click)="reportar()">Reportar</button>
+    </form>
+  
+ 
+</div>
 </ion-content>
