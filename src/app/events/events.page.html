@@ -1,21 +1,22 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>DisappKit</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-    <agm-map [latitude]="lat" [longitude]="lng"  style="height: 300px">
-    <agm-marker *ngFor="let marker of incidentesList" [latitude]="marker.latitud" [longitude]="marker.longitud"
-    [markerDraggable]=false (dragEnd)="markerDragEnd(marker, $event)">
-      <agm-info-window>
-        <strong>{{marker.tipo}}</strong>
-        <br>
-        <strong>{{marker.recomendacion}}</strong>
-        <br>
-        <strong>Fecha: {{marker.date}}</strong>
-      </agm-info-window>
-    </agm-marker>
-  </agm-map>
-    <button class="btn btn-primary" (click)="reportar()">Reportar</button>
-</ion-content>
+    <ion-toolbar>
+      <ion-title>DisappKit</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+      <agm-map [latitude]="lat" [longitude]="lng"  style="height: 450px">
+      <agm-marker *ngFor="let marker of incidentesList" [latitude]="marker.latitud" [longitude]="marker.longitud"
+      [markerDraggable]=false (dragEnd)="markerDragEnd(marker, $event)">
+        <agm-info-window>
+          <strong>{{marker.tipo}}</strong>
+          <br>
+          <strong>{{marker.recomendacion}}</strong>
+          <br>
+          <strong>Fecha: {{marker.date}}</strong>
+        </agm-info-window>
+      </agm-marker>
+    </agm-map>
+      <button style="margin-top: 15px; vertical-align: top"class="btn btn-primary" (click)="reportar()">Crear un reporte</button>
+  </ion-content>
+  
