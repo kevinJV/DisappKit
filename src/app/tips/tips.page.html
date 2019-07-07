@@ -5,5 +5,19 @@
 </ion-header>
 
 <ion-content>
-  <p>Hola</p>
+  <ion-card *ngFor="let tip of tips">
+    <ion-card-header *ngIf="tip.disaster == 'Altas temperaturas'" color="danger">
+      <ion-card-title>{{ tip.type }}</ion-card-title>
+      <ion-card-subtitle>En caso de {{ tip.disaster }}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-header *ngIf="tip.disaster == 'Lluvias intensas'" color="medium">
+        <ion-card-title>{{ tip.type }}</ion-card-title>
+        <ion-card-subtitle>En caso de {{ tip.disaster }}</ion-card-subtitle>
+      </ion-card-header>
+  
+    <ion-card-content>
+      {{ tip.description }}
+    </ion-card-content>
+  </ion-card>
 </ion-content>
