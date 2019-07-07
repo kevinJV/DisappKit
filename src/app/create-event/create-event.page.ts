@@ -5,6 +5,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
 import { ApiService } from '../services/api.service';
+import { NotificationService } from '../services/notification.service';
 
 @Component({
   selector: 'app-create-event',
@@ -27,6 +28,7 @@ export class CreateEventPage implements OnInit {
     private geolocation: Geolocation,    
     public toastController: ToastController,
     private API : ApiService,
+    private notification_service: NotificationService
   ) {    
   }
 
@@ -96,12 +98,17 @@ export class CreateEventPage implements OnInit {
     this.incidenteFormGroup.get("latitud").setValue(this.lat);
     this.incidenteFormGroup.get("longitud").setValue(this.lng);    
     this.API.reportar(this.incidenteFormGroup.value).subscribe(response =>{
+      this.notification_service.sendNotification(this.incidenteFormGroup.value.tipo)
+        .subscribe(response => {
+          console.log(response)
+        },
+        error => {
+          console.log(error)
+        })
       console.log(response);      
       this.toastMessage();  
     },error =>{
       console.log(error.status)      
     })
-    
   }
-
 }
